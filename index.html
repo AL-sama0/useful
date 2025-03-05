@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Useful Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .sidebar {
+            width: 33.33%; /* 占据屏幕的1/3 */
+            background-color: #f4f4f4;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .category {
+            margin-bottom: 20px;
+        }
+        .category h2 {
+            margin: 0 0 10px;
+        }
+        .button {
+            display: inline-block;
+            width: 48%; /* 每行两个按钮 */
+            margin: 1%;
+            padding: 10px;
+            text-align: center;
+            background-color: black;
+            color: white;
+            border: 2px solid yellow;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="category">
+            <h2>AI类</h2>
+            <a href="https://poe.com" class="button" target="_blank">POE</a>
+            <a href="https://moonshot.cn" class="button" target="_blank">Kimi</a><br>
+            <a href="https://deepseek.com" class="button" target="_blank">DeepSeek</a>
+            <a href="https://copilot.com" class="button" target="_blank">Copilot</a>
+        </div>
+        <div class="category">
+            <h2>学习网站</h2>
+            <a href="https://store.steampowered.com" class="button" target="_blank">思题目</a>
+        </div>
+    </div>
+</body>
+</html>
