@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Useful Tool</title>
+    <title>Useful Tool with Music Player</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -39,6 +39,40 @@
         .button:hover {
             background-color: #333;
         }
+        .music-player {
+            width: 300px; /* 设置音乐播放器的宽度 */
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-left: 2px solid #e0d100; /* 左边框 */
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        audio {
+            width: 100%; /* 音频控件宽度自适应 */
+        }
+        .control-buttons {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .control-button {
+            width: 50px; /* 按钮宽度 */
+            height: 50px; /* 按钮高度 */
+            background-color: black;
+            color: white;
+            border: 3px solid #e0d100; /* 边框颜色 */
+            border-radius: 50%; /* 圆形按钮 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .control-button:hover {
+            background-color: #333;
+        }
     </style>
 </head>
 <body>
@@ -60,5 +94,64 @@
             <a href="https://Bloxd.io" class="button" target="_blank">Bloxd</a>
         </div>
     </div>
+    <div class="music-player">
+        <h2>音乐播放器</h2>
+        <audio id="audioPlayer" controls>
+            <source id="audioSource" src="song1.mp3" type="audio/mpeg">
+            您的浏览器不支持音频元素。
+        </audio>
+        <div class="control-buttons">
+            <div class="control-button" onclick="prevSong()">&#9664;&#9664;</div>
+            <div class="control-button" id="playButton" onclick="togglePlay()">&#9654;</div>
+            <div class="control-button" onclick="nextSong()">&#9654;&#9654;</div>
+        </div>
+    </div>
+
+    <script>
+        const songs = [
+            { title: "歌曲 1", src: "song1.mp3" },
+            { title: "歌曲 2", src: "song2.mp3" },
+            { title: "歌曲 3", src: "song3.mp3" }
+        ];
+        
+        let currentSongIndex = 0;
+        const audioPlayer = document.getElementById('audioPlayer');
+        const audioSource = document.getElementById('audioSource');
+        const playButton = document.getElementById('playButton');
+
+        function loadSong(index) {
+            audioSource.src = songs[index].src;
+            audioPlayer.load();
+            audioPlayer.play();
+            updatePlayButton(true); // 更新按钮为暂停图标
+        }
+
+        function nextSong() {
+            currentSongIndex = (currentSongIndex + 1) % songs.length;
+            loadSong(currentSongIndex);
+        }
+
+        function prevSong() {
+            currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+            loadSong(currentSongIndex);
+        }
+
+        function togglePlay() {
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+                updatePlayButton(true); // 更新按钮为暂停图标
+            } else {
+                audioPlayer.pause();
+                updatePlayButton(false); // 更新按钮为播放图标
+            }
+        }
+
+        function updatePlayButton(isPlaying) {
+            playButton.innerHTML = isPlaying ? '&#10074;&#10074;' : '&#9654;'; // &#10074;&#10074; 为暂停图标
+        }
+
+        // 初始化加载第一首歌
+        loadSong(currentSongIndex);
+    </script>
 </body>
 </html>
