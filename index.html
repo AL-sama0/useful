@@ -25,15 +25,16 @@
         }
         .button {
             display: inline-block;
-            width: 48%; /* 每行两个按钮 */
-            margin: 1%;
-            padding: 10px;
+            width: auto; /* 按钮宽度根据内容自适应 */
+            padding: 12px 20px; /* 增加上下和左右的内边距 */
             text-align: center;
             background-color: black;
             color: white;
-            border: 2px solid yellow;
+            border: 2px solid #e0d100; /* 调整为亮黄色 */
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 25px; /* 设置圆角 */
+            margin-right: 5px; /* 添加右边距以分隔按钮 */
+            margin-bottom: 5px; /* 添加下边距以分隔行 */
         }
         .button:hover {
             background-color: #333;
@@ -43,7 +44,7 @@
 <body>
     <div class="sidebar">
         <div class="category">
-            <h2>AI类</h2>
+            <h2>AI</h2>
             <a href="https://poe.com" class="button" target="_blank">POE</a>
             <a href="https://moonshot.cn" class="button" target="_blank">Kimi</a><br>
             <a href="https://deepseek.com" class="button" target="_blank">DeepSeek</a>
@@ -52,6 +53,11 @@
         <div class="category">
             <h2>学习网站</h2>
             <a href="https://store.steampowered.com" class="button" target="_blank">思题目</a>
+        </div>
+        <div class="category">
+            <h2>小游戏</h2>
+            <a href="https://narrow.one" class="button" target="_blank">Narrow One</a>
+            <a href="https://Bloxd.io" class="button" target="_blank">Bloxd</a>
         </div>
     </div>
 </body>
